@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Line Compare — Compare or Search Text Line-by-Line</title>
+  <meta name="description"
+    content="Compare two sets of lines or search terms line-by-line. Clean, static tool that works in any browser.">
+
+
+  <!-- 🌐 Open Graph Meta Tags -->
+  <meta property="og:title" content="Line Compare">
+  <meta property="og:description"
+    content="Compare two sets of lines or search terms line-by-line. Clean, static tool that works in any browser.">
+  <meta property="og:image" content="https://raul.viigipuu.ee/apps/line-compare/images/og-preview.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://raul.viigipuu.ee/apps/line-compare">
+
+  <!-- 🐦 Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Line Compare">
+  <meta name="twitter:description"
+    content="Compare two sets of lines or search terms line-by-line. Clean, static tool that works in any browser.">
+  <meta name="twitter:url" content="https://raul.viigipuu.ee/apps/line-compare/">
+  <meta name="twitter:image" content="https://raul.viigipuu.ee/apps/line-compare/images/og-image.jpg">
+
+  <link rel="canonical" href="https://raul.viigipuu.ee/apps/line-compare">
+
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/styles.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Line Compare",
+    "operatingSystem": "All",
+    "applicationCategory": "UtilitiesApplication",
+    "description": "Compare or search two sets of lines line-by-line. Clean, static tool that works offline in any browser.",
+    "url": "https://raul.viigipuu.ee/apps/line-compare",
+    "image": "https://raul.viigipuu.ee/apps/line-compare/images/og-preview.jpg",
+    "browserRequirements": "Requires JavaScript",
+    "isAccessibleForFree": true,
+    "author": {
+      "@type": "Person",
+      "name": "Raul Viigipuu",
+      "url": "https://raul.viigipuu.ee"
+    }
+  }
+  </script>
+
+
+  <!-- App JS -->
+  <script src="js/script.js" defer></script>
+</head>
+
+<body>
+  <main class="container">
+    <h1>Line Compare</h1>
+    <h2 class="section-header">v1.1.2</h2>
+
+    <form id="compForm">
+      <section class="input-area">
+        <div class="textarea-group">
+          <label for="leftTextarea">Left</label>
+          <div class="textarea-wrapper">
+            <div class="line-numbers" id="leftLineNumbers"></div>
+            <textarea id="leftTextarea"></textarea>
+          </div>
+          <label>
+            <input type="checkbox" id="leftReplaceBackslashes">
+            Replace "\" with "/"
+          </label>
+        </div>
+
+        <div class="textarea-group">
+          <label for="rightTextarea">Right</label>
+          <div class="textarea-wrapper">
+            <div class="line-numbers" id="rightLineNumbers"></div>
+            <textarea id="rightTextarea"></textarea>
+          </div>
+          <label>
+            <input type="checkbox" id="rightReplaceBackslashes">
+            Replace "\" with "/"
+          </label>
+        </div>
+      </section>
+
+      <div class="button-row">
+        <button id="compareButton" type="button" class="btn">Compare</button>
+        <button id="containsButton" type="button" class="btn">Search</button>
+        <button id="clearButton" type="button" class="btn secondary">Clear</button>
+      </div>
+    </form>
+
+    <!-- Contains results -->
+    <section id="containsResult" class="results hidden">
+      <h3 class="section-header">Search Results</h3>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Search Term</th>
+            <th>Matches</th>
+            <th>Lines</th>
+          </tr>
+        </thead>
+        <tbody id="containsLinesList"></tbody>
+      </table>
+    </section>
+
+    <!-- Comparison results -->
+    <section id="comparisonResult" class="results hidden">
+      <h3 class="section-header">Comparison Results</h3>
+      <div class="table-group">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Only Left</th>
+              <th>Count</th>
+            </tr>
+          </thead>
+          <tbody id="leftLinesList"></tbody>
+        </table>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Only Right</th>
+              <th>Count</th>
+            </tr>
+          </thead>
+          <tbody id="rightLinesList"></tbody>
+        </table>
+      </div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Common Line</th>
+            <th>Left Count</th>
+            <th>Right Count</th>
+          </tr>
+        </thead>
+        <tbody id="commonLinesList"></tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer>
+    This website does not use cookies 🍪
+  </footer>
+</body>
+
+</html>

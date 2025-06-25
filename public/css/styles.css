@@ -1,0 +1,145 @@
+/* Layout */
+.input-area {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+    .input-area {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+/* Textareas */
+.textarea-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.textarea-group textarea {
+    resize: vertical;
+    min-height: 200px;
+    padding: 0.75rem;
+    font-family: monospace;
+    font-size: var(--font-sm);
+}
+
+/* Buttons */
+.button-row {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.btn {
+    padding: 0.5rem 1.25rem;
+    background-color: #0057b8;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: var(--font-sm);
+}
+
+.btn:hover {
+    background-color: #004aa1;
+}
+
+.btn.secondary {
+    background-color: #ccc;
+    color: #333;
+}
+
+.btn.secondary:hover {
+    background-color: #bbb;
+}
+
+/* Headings */
+.section-header {
+    text-align: center;
+    font-size: var(--font-md);
+    margin: 2rem 0 1rem;
+}
+
+/* Tables */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 2rem;
+}
+
+.table th,
+.table td {
+    border: 1px solid #ddd;
+    padding: 0.5rem;
+    font-size: var(--font-sm);
+    text-align: left;
+    vertical-align: top;
+}
+
+.table th {
+    background-color: #f0f0f0;
+    font-weight: 600;
+}
+
+/* Side-by-side tables */
+.table-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .table-group {
+        flex-direction: row;
+    }
+
+    .table-group table {
+        flex: 1;
+    }
+}
+
+/* Results visibility */
+.hidden {
+    display: none;
+}
+
+/* Highlighted search terms */
+.highlight {
+    background-color: yellow;
+    font-weight: bold;
+}
+
+.textarea-wrapper {
+  display: flex;
+  position: relative;
+  width: 100%;
+}
+
+.line-numbers {
+  user-select: none;
+  padding: 0.75rem 0.5rem;
+  background: #eee;
+  color: #666;
+  text-align: right;
+  line-height: 1.4;
+  font-family: monospace;
+  font-size: var(--font-sm);
+  border-right: 1px solid #ccc;
+  min-width: 2rem;
+}
+
+.textarea-wrapper textarea {
+  flex: 1;
+  resize: vertical;
+  padding: 0.75rem;
+  font-family: monospace;
+  font-size: var(--font-sm);
+  line-height: 1.4;
+}
