@@ -1,4 +1,22 @@
-/* Layout */
+/* =========================
+   Layout & Containers
+   ========================= */
+.container {
+    width: 95%;
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem 1.5rem;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.08);
+}
+
+@media (min-width: 1024px) {
+    .container {
+        max-width: 1400px;
+    }
+}
+
 .input-area {
     display: flex;
     flex-direction: column;
@@ -13,7 +31,25 @@
     }
 }
 
-/* Textareas */
+.table-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .table-group {
+        flex-direction: row;
+    }
+
+    .table-group table {
+        flex: 1;
+    }
+}
+
+/* =========================
+   Components: Textareas
+   ========================= */
 .textarea-group {
     flex: 1;
     display: flex;
@@ -29,7 +65,37 @@
     font-size: var(--font-sm);
 }
 
-/* Buttons */
+.textarea-wrapper {
+    display: flex;
+    position: relative;
+    width: 100%;
+}
+
+.line-numbers {
+    user-select: none;
+    padding: 0.75rem 0.5rem;
+    background: #eee;
+    color: #666;
+    text-align: right;
+    line-height: 1.4;
+    font-family: monospace;
+    font-size: var(--font-sm);
+    border-right: 1px solid #ccc;
+    min-width: 2rem;
+}
+
+.textarea-wrapper textarea {
+    flex: 1;
+    resize: vertical;
+    padding: 0.75rem;
+    font-family: monospace;
+    font-size: var(--font-sm);
+    line-height: 1.4;
+}
+
+/* =========================
+   Components: Buttons
+   ========================= */
 .button-row {
     display: flex;
     justify-content: center;
@@ -60,14 +126,9 @@
     background-color: #bbb;
 }
 
-/* Headings */
-.section-header {
-    text-align: center;
-    font-size: var(--font-md);
-    margin: 2rem 0 1rem;
-}
-
-/* Tables */
+/* =========================
+   Components: Tables
+   ========================= */
 .table {
     width: 100%;
     border-collapse: collapse;
@@ -88,58 +149,23 @@
     font-weight: 600;
 }
 
-/* Side-by-side tables */
-.table-group {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
+/* =========================
+   Typography
+   ========================= */
+.section-header {
+    text-align: center;
+    font-size: var(--font-md);
+    margin: 2rem 0 1rem;
 }
 
-@media (min-width: 768px) {
-    .table-group {
-        flex-direction: row;
-    }
-
-    .table-group table {
-        flex: 1;
-    }
-}
-
-/* Results visibility */
+/* =========================
+   Utilities
+   ========================= */
 .hidden {
     display: none;
 }
 
-/* Highlighted search terms */
 .highlight {
     background-color: yellow;
     font-weight: bold;
-}
-
-.textarea-wrapper {
-  display: flex;
-  position: relative;
-  width: 100%;
-}
-
-.line-numbers {
-  user-select: none;
-  padding: 0.75rem 0.5rem;
-  background: #eee;
-  color: #666;
-  text-align: right;
-  line-height: 1.4;
-  font-family: monospace;
-  font-size: var(--font-sm);
-  border-right: 1px solid #ccc;
-  min-width: 2rem;
-}
-
-.textarea-wrapper textarea {
-  flex: 1;
-  resize: vertical;
-  padding: 0.75rem;
-  font-family: monospace;
-  font-size: var(--font-sm);
-  line-height: 1.4;
 }
